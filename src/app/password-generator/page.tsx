@@ -4,20 +4,19 @@ import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
 import { InputText } from "primereact/inputtext";
 import { Knob, KnobChangeEvent } from "primereact/knob";
-import { Slider } from "primereact/slider";
 import { useState } from "react";
 
 const PasswordGeneratorPage = () => {
-  const [rangeInputValue, setRangeInputValue] = useState(8);
-  const [password, setPassword] = useState("");
+  const [rangeInputValue, setRangeInputValue] = useState<number>(8);
+  const [password, setPassword] = useState<string>("");
 
   // Checkboxes
-  const [enableUppercaseLetters, setUppercaseLetters] = useState(false);
-  const [enableNumbers, setEnableNumbers] = useState(false);
-  const [enableSpecialCharacters, setEnableSpecialCharacters] = useState(false);
+  const [enableUppercaseLetters, setUppercaseLetters] = useState<boolean>(false);
+  const [enableNumbers, setEnableNumbers] = useState<boolean>(false);
+  const [enableSpecialCharacters, setEnableSpecialCharacters] = useState<boolean>(false);
 
   // Validation
-  const [validPassword, setValidPassword] = useState(false);
+  const [validPassword, setValidPassword] = useState<boolean>(false);
 
   // functions
   const checkNumbers = (password: string) => {
