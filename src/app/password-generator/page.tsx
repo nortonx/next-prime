@@ -4,11 +4,14 @@ import { Button } from "primereact/button";
 import { Checkbox } from "primereact/checkbox";
 import { InputText } from "primereact/inputtext";
 import { Knob, KnobChangeEvent } from "primereact/knob";
-import { useState } from "react";
+import { Toast } from "primereact/toast";
+import { useRef, useState } from "react";
+import styles from "./page.module.css";
 
 const PasswordGeneratorPage = () => {
   const [rangeInputValue, setRangeInputValue] = useState<number>(8);
   const [password, setPassword] = useState<string>("");
+  const toast = useRef(null);
 
   // Checkboxes
   const [enableUppercaseLetters, setUppercaseLetters] = useState<boolean>(false);
@@ -34,6 +37,7 @@ const PasswordGeneratorPage = () => {
   const copyText = () => {
     if (password) {
       navigator.clipboard.writeText(password);
+      showToast()
     }
   }
 
@@ -76,16 +80,24 @@ const PasswordGeneratorPage = () => {
         }
   }
 
+  const showToast = () => {
+    toast.current.show({ severity: "info", summary: "Info", detail: "Password copied to clipboard."});
+  }
+
   return(
-    <main className="surface-0">
+    <main className="surface-0" data-testid="password-generator-page">
       <div className="text-900 font-bold text-6xl mb-4 text-center">Password Generator</div>
 
       <div className="grid">
-        <div className="col-12 lg:col-3"></div>
-        <div className="col-12 lg:col-6">
+        <div className="col-12 lg:col-4"></div>
+        <div className="col-12 lg:col-4">
           <div className="p-3 h-full">
             <div className="shadow-2 p-3 h-full flex flex-column">
-              <InputText value={password} onChange={e => setPassword(e.target.value)} />
+              <InputText 
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                className={styles.password}
+              />
               <Button
                 label="Copy password"
                 icon="pi pi-copy"
@@ -135,6 +147,7 @@ const PasswordGeneratorPage = () => {
                   onClick={() => setPassword("")}
                   icon="pi pi-ban"
                 />
+                <Toast ref={toast} />
               </div>
             </div>
           </div>
