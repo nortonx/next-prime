@@ -97,6 +97,7 @@ const PasswordGeneratorPage = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className={styles.password}
+                data-testid="password-field"
               />
               <Button
                 label="Copy password"
@@ -141,6 +142,7 @@ const PasswordGeneratorPage = () => {
                   label="Generate Password"
                   onClick={generatePassword}
                   icon="pi pi-replay"
+                  data-testid="generate-password-btn"
                 />
                 <Button
                   label="Clear Password"
