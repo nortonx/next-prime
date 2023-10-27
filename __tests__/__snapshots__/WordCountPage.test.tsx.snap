@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Wound Count Page should render page and match snapshot 1`] = `
+<div>
+  <section
+    class="p-3"
+    data-testid="word-count-page"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="p-card p-component w-2 flex"
+        data-pc-name="card"
+        data-pc-section="root"
+      >
+        <div
+          class="p-card-body"
+          data-pc-section="body"
+        >
+          <div
+            class="p-card-title"
+            data-pc-section="title"
+          >
+            Words
+          </div>
+          <div
+            class="p-card-content"
+            data-pc-section="content"
+          >
+            <span
+              class="text-xl font-medium"
+            >
+              0
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-card p-component w-2"
+        data-pc-name="card"
+        data-pc-section="root"
+      >
+        <div
+          class="p-card-body"
+          data-pc-section="body"
+        >
+          <div
+            class="p-card-title"
+            data-pc-section="title"
+          >
+            Characters
+          </div>
+          <div
+            class="p-card-content"
+            data-pc-section="content"
+          >
+            <span
+              class="text-xl font-medium"
+            >
+              0
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-card p-component w-2"
+        data-pc-name="card"
+        data-pc-section="root"
+      >
+        <div
+          class="p-card-body"
+          data-pc-section="body"
+        >
+          <div
+            class="p-card-title"
+            data-pc-section="title"
+          >
+            Sentences
+          </div>
+          <div
+            class="p-card-content"
+            data-pc-section="content"
+          >
+            <span
+              class="text-xl font-medium"
+            >
+              0
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-card p-component w-2"
+        data-pc-name="card"
+        data-pc-section="root"
+      >
+        <div
+          class="p-card-body"
+          data-pc-section="body"
+        >
+          <div
+            class="p-card-title"
+            data-pc-section="title"
+          >
+            Paragraphs
+          </div>
+          <div
+            class="p-card-content"
+            data-pc-section="content"
+          >
+            <span
+              class="text-xl font-medium"
+            >
+              0
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <textarea
+      class="p-inputtextarea p-inputtext p-component p-inputtextarea-resizable w-6 w-6"
+      data-pc-name="inputtextarea"
+      data-pc-section="root"
+      rows="10"
+      style="overflow: hidden; height: 0px;"
+    />
+  </section>
+</div>
+`;

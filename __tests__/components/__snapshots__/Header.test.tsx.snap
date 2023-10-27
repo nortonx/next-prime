@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render and match snapshot 1`] = `
+<div>
+  <header
+    class="flex w-full"
+    data-testid="header"
+  >
+    <nav
+      class="flex w-full align-items-center justify-content-between"
+    >
+      <div
+        class="brand ml-3"
+      >
+        Brand
+      </div>
+      <ul
+        class="flex mr-3"
+      >
+        <li
+          class="mr-2"
+        >
+          <a
+            href="/password-generator"
+          >
+            <button
+              aria-label="Password Generator"
+              class="p-button p-component"
+              data-pc-name="button"
+              data-pc-section="root"
+            >
+              <span
+                class="p-button-icon p-c p-button-icon-left pi pi-lock"
+                data-pc-section="icon"
+              />
+              <span
+                class="p-button-label p-c"
+                data-pc-section="label"
+              >
+                Password Generator
+              </span>
+            </button>
+          </a>
+        </li>
+        <li
+          class="mr-2"
+        >
+          <a
+            href="/repositories"
+          >
+            <button
+              aria-label="Repositories"
+              class="p-button p-component"
+              data-pc-name="button"
+              data-pc-section="root"
+            >
+              <span
+                class="p-button-icon p-c p-button-icon-left pi pi-github"
+                data-pc-section="icon"
+              />
+              <span
+                class="p-button-label p-c"
+                data-pc-section="label"
+              >
+                Repositories
+              </span>
+            </button>
+          </a>
+        </li>
+        <li
+          class="mr-2"
+        >
+          <a
+            href="/word-count"
+          >
+            <button
+              aria-label="Word Count"
+              class="p-button p-component"
+              data-pc-name="button"
+              data-pc-section="root"
+            >
+              <span
+                class="p-button-icon p-c p-button-icon-left pi pi-check-circle"
+                data-pc-section="icon"
+              />
+              <span
+                class="p-button-label p-c"
+                data-pc-section="label"
+              >
+                Word Count
+              </span>
+            </button>
+          </a>
+        </li>
+        <li
+          class="mr-2"
+        >
+          <a
+            href="/about"
+          >
+            <button
+              aria-label="About"
+              class="p-button p-component"
+              data-pc-name="button"
+              data-pc-section="root"
+            >
+              <span
+                class="p-button-icon p-c p-button-icon-left pi pi-info-circle"
+                data-pc-section="icon"
+              />
+              <span
+                class="p-button-label p-c"
+                data-pc-section="label"
+              >
+                About
+              </span>
+            </button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+`;
