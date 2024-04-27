@@ -1,6 +1,6 @@
 {
   "name": "next-prime",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --collectCoverage",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:updateSnapshot": "jest --updateSnapshot"
   },
   "dependencies": {
     "@types/node": "20.6.3",
