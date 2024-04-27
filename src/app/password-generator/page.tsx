@@ -7,31 +7,32 @@ import { Knob, KnobChangeEvent } from "primereact/knob";
 import { Toast } from "primereact/toast";
 import { useRef, useState } from "react";
 import styles from "./page.module.css";
+import usePasswordGenerator from '../hooks/usePasswordGenerator';
 
 const PasswordGeneratorPage = () => {
-  const [rangeInputValue, setRangeInputValue] = useState<number>(8);
-  const [password, setPassword] = useState<string>("");
-  const toast = useRef(null);
+  
+  const { 
+    rangeInputValue, 
+    setRangeInputValue,
+    password, 
+    setPassword,
+    enableUppercaseLetters, 
+    setUppercaseLetters,
+    enableNumbers, 
+    setEnableNumbers,
+    enableSpecialCharacters, 
+    setEnableSpecialCharacters,
+    checkNumbers,
+    checkSpecialCharacters,
+    checkUppercase,
+    generatePassword,
+    validatePassword,
+  } = usePasswordGenerator();
 
-  // Checkboxes
-  const [enableUppercaseLetters, setUppercaseLetters] = useState<boolean>(false);
-  const [enableNumbers, setEnableNumbers] = useState<boolean>(false);
-  const [enableSpecialCharacters, setEnableSpecialCharacters] = useState<boolean>(false);
-
-  // Validation
-  const [validPassword, setValidPassword] = useState<boolean>(false);
-
-  // functions
-  const checkNumbers = (password: string) => {
-    return Boolean(password.match(/[0-9]/))
-  }
-
-  const checkUppercase = (password: string) => {
-    return Boolean(password.match(/[A-Z]/));
-  }
-
-  const checkSpecialCharacters = (password: string) => {
-    return Boolean(password.match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/))
+  const toast = useRef<Toast>(null);
+  
+  const showToast = () => {
+    toast.current?.show({ severity: "info", summary: "Info", detail: "Password copied to clipboard."});
   }
 
   const copyText = () => {
@@ -39,49 +40,6 @@ const PasswordGeneratorPage = () => {
       navigator.clipboard.writeText(password);
       showToast()
     }
-  }
-
-  const generatePassword = () => {
-    const allowedNumbers = "0123456789";
-    const allowedLetters = "abcdefghijklmnopqrstuvwxyz";
-    const allowedUppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const allowedSpecialCharacters = "!@#$%^&*()";
-    let allowedCharacters = allowedLetters;
-
-    if (enableNumbers) {
-      allowedCharacters += allowedNumbers
-    }
-
-    if (enableUppercaseLetters) {
-      allowedCharacters += allowedUppercaseLetters
-    }
-
-    if (enableSpecialCharacters) {
-      allowedCharacters += allowedSpecialCharacters;
-    }
-
-    setPassword("")
-
-    let generatedPassword = "";
-
-    for (let i = 0; i < rangeInputValue; i++) {
-      let randomNumber = Math.floor(Math.random() * allowedCharacters.length)
-      generatedPassword += allowedCharacters.substring(randomNumber, randomNumber + 1)
-    }
-    setPassword(generatedPassword)
-    validatePassword(password)
-  }
-
-  const validatePassword = (password: string) => {
-    if (checkNumbers(password)
-        || checkUppercase(password)
-        || checkSpecialCharacters(password)) {
-          setValidPassword(!validPassword)
-        }
-  }
-
-  const showToast = () => {
-    toast.current.show({ severity: "info", summary: "Info", detail: "Password copied to clipboard."});
   }
 
   return(
@@ -111,8 +69,10 @@ const PasswordGeneratorPage = () => {
                   checked={enableUppercaseLetters}
                   onChange={() => setUppercaseLetters(!enableUppercaseLetters)}
                 />
-                <label htmlFor="uppercaseLetters" className="ml-2">Enable Uppercase Letters</label>
-              B</div>
+                <label htmlFor="uppercaseLetters" className="ml-2">
+                  Enable Uppercase Letters
+                </label>
+              </div>
               <div className="flex align-items-center mt-3">
                 <Checkbox
                   inputId="numbers"
