@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 const PasswordGeneratorPage = () => {
   const [rangeInputValue, setRangeInputValue] = useState<number>(8);
   const [password, setPassword] = useState<string>("");
-  const toast = useRef(null);
+  const toast = useRef<Toast>(null);
 
   // Checkboxes
   const [enableUppercaseLetters, setUppercaseLetters] = useState<boolean>(false);
@@ -23,7 +23,7 @@ const PasswordGeneratorPage = () => {
 
   // functions
   const checkNumbers = (password: string) => {
-    return Boolean(password.match(/[0-9]/))
+    return Boolean(password.match(/\d/))
   }
 
   const checkUppercase = (password: string) => {
@@ -31,7 +31,7 @@ const PasswordGeneratorPage = () => {
   }
 
   const checkSpecialCharacters = (password: string) => {
-    return Boolean(password.match(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/))
+    return Boolean(password.match(/[`!@#$%^&*()_+\-=[\]{};':"\\|,.<>\/?~]/))
   }
 
   const copyText = () => {
@@ -81,7 +81,7 @@ const PasswordGeneratorPage = () => {
   }
 
   const showToast = () => {
-    toast.current.show({ severity: "info", summary: "Info", detail: "Password copied to clipboard."});
+    toast.current?.show({ severity: "info", summary: "Info", detail: "Password copied to clipboard."});
   }
 
   return(
@@ -111,8 +111,10 @@ const PasswordGeneratorPage = () => {
                   checked={enableUppercaseLetters}
                   onChange={() => setUppercaseLetters(!enableUppercaseLetters)}
                 />
-                <label htmlFor="uppercaseLetters" className="ml-2">Enable Uppercase Letters</label>
-              B</div>
+                <label htmlFor="uppercaseLetters" className="ml-2">
+                  Enable Uppercase Letters
+                </label>
+              </div>
               <div className="flex align-items-center mt-3">
                 <Checkbox
                   inputId="numbers"

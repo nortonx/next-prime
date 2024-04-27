@@ -9,36 +9,6 @@ exports[`About Page should render and match snapshot 1`] = `
     <h1>
       About Page
     </h1>
-    <div
-      class="form-row"
-    >
-      <label
-        for="city"
-      >
-        City:
-      </label>
-      <input
-        class="p-inputtext p-component"
-        data-pc-name="inputtext"
-        data-pc-section="root"
-        id="city"
-        list="cities"
-        name="city"
-      />
-      <datalist
-        id="cities"
-      >
-        <option
-          value="bh"
-        />
-        <option
-          value="sp"
-        />
-        <option
-          value="rj"
-        />
-      </datalist>
-    </div>
   </main>
 </div>
 `;
