@@ -34,6 +34,14 @@ const Header = () => {
             </Link>
           </li>
           <li className="mr-2">
+            <Link href="/table-data">
+              <Button
+                label="Table Data"
+                icon="pi pi-table"
+              />
+            </Link>
+          </li>
+          <li className="mr-2">
             <Link href="/about">
               <Button
                 label="About"
